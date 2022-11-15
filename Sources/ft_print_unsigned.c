@@ -6,12 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/13 12:11:57 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/14 11:01:34 by arommers      ########   odam.nl         */
+/*   Updated: 2022/11/15 09:25:24 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../Include/ft_printf.h"
 
 static int	nbr_size(unsigned int len)
 {
@@ -30,22 +29,15 @@ char	*ft_unsigned_itoa(unsigned int n)
 {
 	char			*str;
 	int				count;
-	long int		i;
 
-	i = n;
-	count = nbr_size(i);
+	count = nbr_size(n);
 	str = (char *)ft_calloc (sizeof(char), (count + 1));
 	if (!str)
 		return (NULL);
-	if (i == 0)
-	{
-		str[0] = 48;
-		return (str);
-	}
 	while (count--)
 	{
-		str[count] = i % 10 + '0';
-		i = i / 10;
+		str[count] = n % 10 + '0';
+		n = n / 10;
 	}
 	return (str);
 }
@@ -55,9 +47,15 @@ int	ft_print_unsigned(unsigned int n)
 	char	*str;
 	int		count;
 
-	str = ft_unsigned_itoa(n);
-	count = ft_strlen(str);
-	ft_print_str(str);
-	free(str);
+	count = 0;
+	if (n == 0)
+		count = count + ft_write_char('0');
+	else
+	{
+		str = ft_unsigned_itoa(n);
+		count = ft_strlen(str);
+		ft_print_str(str);
+		free(str);
+	}
 	return (count);
 }

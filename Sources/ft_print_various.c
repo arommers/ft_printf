@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_write.c                                         :+:    :+:            */
+/*   ft_print_various.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 14:28:46 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/14 10:59:57 by arommers      ########   odam.nl         */
+/*   Updated: 2022/11/14 12:56:58 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../Include/ft_printf.h"
 
 int	ft_write_char(int i)
 {

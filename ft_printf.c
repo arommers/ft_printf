@@ -6,12 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 10:47:47 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/14 11:44:02 by arommers      ########   odam.nl         */
+/*   Updated: 2022/11/15 13:24:50 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "Include/ft_printf.h"
 
 /*c = va_arg(args, int)
 s = va_arg(args, char *)
@@ -38,16 +37,16 @@ int	ft_converter(va_list ap, const char s)
 	else if (s == 'u')
 		count = count + ft_print_unsigned(va_arg(ap, unsigned int));
 	else if (s == 'x')
-		count = count + ft_print_hex(va_arg(ap, unsigned int),
+		count = count + ft_return_hex(va_arg(ap, unsigned int),
 				"0123456789abcdef");
 	else if (s == 'X')
-		count = count + ft_print_hex(va_arg(ap, unsigned int),
+		count = count + ft_return_hex(va_arg(ap, unsigned int),
 				"0123456789ABCDEF");
-	if (s == 'p')
-		count = count + ft_print_ptr(va_arg(ap, unsigned long),
+	else if (s == 'p')
+		count = count + ft_return_ptr(va_arg(ap, unsigned long),
 				"0123456789abcdef");
 	else if (s == '%')
-		count = (count + 1)ft_write_char('%');
+		count = count + ft_write_char('%');
 	return (count);
 }
 
@@ -63,30 +62,27 @@ int	ft_printf(const char *s, ...)
 	while (s[i])
 	{
 		if (s[i] == '%')
+		{
 			count = count + ft_converter(ap, s[i + 1]);
-			// && ft_strchr("cspdiuxX%", s[i + 1]))
 			i++;
+		}
 		else
 			count = count + ft_write_char(s[i]);
 		i++;
 	}
 	va_end(ap);
-	printf("print count: %d\n", count);
 	return (count);
 }
 
 // int	main(void)
 // {
-// 	char	*str;
-// 	char	*ptr;
+// 	unsigned int	i;
 
-// 	str = "Bulbasaur";
-// 	ptr = str;
-// 	ft_printf("where? @ %p\n", ptr);
-// 	printf("where? @ %p\n", ptr);
+// 	i = 3257595;
+// 	printf("%d\n", printf("%x\n", i));
+// 	ft_printf("%d\n", ft_printf("%x\n", i));
 // 	return (0);
 // }
-
 	// char	*str;
 
 	// str = "general kenobi";

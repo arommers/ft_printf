@@ -6,10 +6,11 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2022/11/04 13:59:42 by arommers      ########   odam.nl          #
+#    Updated: 2022/11/15 14:53:34 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+PROJECT = Libft
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
@@ -39,22 +40,37 @@ BSRC = ft_lstnew.c ft_lstadd_front.c 	\
 OBJ = $(SRC:%.c=%.o)
 BONUS = $(BSRC:%.c=%.o)
 
+#colours
+PINK	= \x1b[35m
+RESET	= \x1b[0m
+GREEN	= \x1b[32m
+BLUE	= \x1b[34m
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar -rcs $@ $^
+start:
+	@echo "$(PINK)---------\nStarting $(PROJECT)\n----------$(RESET)"
+
+$(NAME): start $(OBJ)
+	@echo "Compiled with $(GREEN)$(CFLAGS)$(RESET)"
+	@ar -rcs $@ $(OBJ)
+	@echo "$(BLUE)-------------------------------------------------------------$(NAME) = NOW READY FOR USE!$(RESET)"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	@echo "Compilation $(PINK) $^ $(RESET)"
+	@$(CC) $(CFLAGS) -c -o $@ $^
 
 bonus:	${OBJ} ${BONUS}
-		ar -rcs $(NAME) $(OBJ) $(BONUS)
+	@ar -rcs $(NAME) $(OBJ) $(BONUS)
 
 clean:
-	rm -f $(OBJ) $(BONUS)
+	@echo "$(PINK) $@ $(PROJECT) $(RESET) done."
+	@rm -f $(OBJ) $(BONUS)
+	
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "$(PINK) $@ $(PROJECT) $(RESET) done."
+	@rm -f $(NAME)
 
 re: fclean all
 
