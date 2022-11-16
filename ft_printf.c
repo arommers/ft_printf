@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 10:47:47 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/15 13:24:50 by arommers      ########   odam.nl         */
+/*   Updated: 2022/11/16 11:09:38 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
+			if (s[i + 1] == '\0')
+				break ;
 			count = count + ft_converter(ap, s[i + 1]);
 			i++;
 		}
@@ -78,9 +80,9 @@ int	ft_printf(const char *s, ...)
 // {
 // 	unsigned int	i;
 
-// 	i = 3257595;
-// 	printf("%d\n", printf("%x\n", i));
-// 	ft_printf("%d\n", ft_printf("%x\n", i));
+// 	i = 0;
+// 	printf("%d\n", printf("%d\n", i));
+// 	ft_printf("%d\n", ft_printf("%d\n", i));
 // 	return (0);
 // }
 	// char	*str;

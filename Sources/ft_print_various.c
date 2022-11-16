@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 14:28:46 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/14 12:56:58 by arommers      ########   odam.nl         */
+/*   Updated: 2022/11/16 11:15:22 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_print_int(int n)
 	int		count;
 
 	str = ft_itoa(n);
+	if (str == NULL)
+		return (0);
 	count = ft_strlen(str);
 	ft_print_str(str);
 	free(str);

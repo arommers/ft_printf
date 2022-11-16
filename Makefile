@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/08 14:41:53 by arommers      #+#    #+#                  #
-#    Updated: 2022/11/15 14:51:48 by arommers      ########   odam.nl          #
+#    Updated: 2022/11/16 10:32:43 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,10 @@ BLUE	= \x1b[34m
 all: $(NAME)
 
 $(NAME): $(LIBFT) start $(OBJ) $(HEAD)
-	@echo "Compiled with $(GREEN)$(CFLAGS)$(RESET)"
+	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
 	@cp $(LIBFT) $(NAME)
 	@ar -rcs $@ $(OBJ) $(HEAD)
-	@echo "$(BLUE)-------------------------------------------------------------$(NAME) = NOW READY FOR USE!$(RESET)"
+	@echo "$(YELLOW)-------------------------------------------\n     $(NAME) = NOW READY FOR USE!\n-------------------------------------------$(RESET)"
 
 $(LIBFT):
 	@$(MAKE) -C ./Libft
@@ -44,20 +44,20 @@ $(LIBFT):
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $^  
-	@echo "$(YELLOW) $^ $(RESET)	Compiling"
+	@echo "Compilation Done $(YELLOW) $^ $(RESET)"
 
 start:
-	@echo "$(YELLOW)---------------------\nStarting $(PROJECT)\n-------------------$(RESET)"
+	@echo "$(YELLOW)------------------------------\n	Starting $(PROJECT)\n------------------------------$(RESET)"
 
 clean:
 	@$(MAKE) clean -C ./Libft
 	@rm -f $(OBJ)
-	@echo "$(YELLOW) $@ $(PROJECT) $(RESET) done."
+	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 
 fclean: clean
 	@$(MAKE) fclean -C ./Libft
 	@rm -f $(NAME)
-	@echo "$(YELLOW) $@ $(PROJECT) $(RESET) done."
+	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 
 re: fclean all
 

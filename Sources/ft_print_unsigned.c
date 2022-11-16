@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/13 12:11:57 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/15 09:25:24 by arommers      ########   odam.nl         */
+/*   Updated: 2022/11/16 11:19:30 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	ft_print_unsigned(unsigned int n)
 	else
 	{
 		str = ft_unsigned_itoa(n);
+		if (str == NULL)
+			return (0);
 		count = ft_strlen(str);
 		ft_print_str(str);
 		free(str);

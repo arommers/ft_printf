@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2022/11/15 14:53:34 by arommers      ########   odam.nl          #
+#    Updated: 2022/11/16 10:32:58 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,27 +49,27 @@ BLUE	= \x1b[34m
 all: $(NAME)
 
 start:
-	@echo "$(PINK)---------\nStarting $(PROJECT)\n----------$(RESET)"
+	@echo "$(PINK)------------------------------\n	Starting $(PROJECT)\n------------------------------$(RESET)"
 
 $(NAME): start $(OBJ)
-	@echo "Compiled with $(GREEN)$(CFLAGS)$(RESET)"
+	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
 	@ar -rcs $@ $(OBJ)
-	@echo "$(BLUE)-------------------------------------------------------------$(NAME) = NOW READY FOR USE!$(RESET)"
+	@echo "$(PINK)-------------------------------------------\n	$(NAME) = NOW READY FOR USE!\n-------------------------------------------$(RESET)"
 
 %.o: %.c
-	@echo "Compilation $(PINK) $^ $(RESET)"
+	@echo "Compilation Done $(PINK) $^ $(RESET)"
 	@$(CC) $(CFLAGS) -c -o $@ $^
 
 bonus:	${OBJ} ${BONUS}
 	@ar -rcs $(NAME) $(OBJ) $(BONUS)
 
 clean:
-	@echo "$(PINK) $@ $(PROJECT) $(RESET) done."
+	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 	@rm -f $(OBJ) $(BONUS)
 	
 
 fclean: clean
-	@echo "$(PINK) $@ $(PROJECT) $(RESET) done."
+	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all
