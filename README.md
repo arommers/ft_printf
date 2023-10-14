@@ -35,3 +35,12 @@ int main() {
 }
 ```
 
+**As of now the instruction only partain to making the program on MacOS. Use on linux or windows systems at your own risk ;)*
+
+---
+
+### Sources
+
+- [Format specifiers in 'printf'](https://cplusplus.com/reference/cstdio/printf/)
+- [Suibject File](https://cdn.intra.42.fr/pdf/pdf/99964/en.subject.pdf)
+
