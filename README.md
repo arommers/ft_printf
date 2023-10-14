@@ -23,3 +23,15 @@ In this project, we implement a function that accepts a format string and a vari
 
   Either use the following command in your terminal: `git clone https://github.com/arommers/ft_printf.git`  
   Or Click the green "Code" button in the upper right corner to download zip file and then unzip it.
+- **Compile the program using the cmd** &nbsp;&nbsp;`make
+- **Run a test case like the example below:**
+
+```
+#include "ft_printf.h"
+
+int main() {
+    ft_printf("Hello, %s! You have %d new messages.\n", "User", 3);
+    return 0;
+}
+```
+
