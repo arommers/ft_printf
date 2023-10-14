@@ -39,8 +39,12 @@ int main() {
 
 ---
 
+## Remarks
+
+---
+
 ### Sources
 
 - [Format specifiers in 'printf'](https://cplusplus.com/reference/cstdio/printf/)
-- [Suibject File](https://cdn.intra.42.fr/pdf/pdf/99964/en.subject.pdf)
+- [Subject File](https://cdn.intra.42.fr/pdf/pdf/99964/en.subject.pdf)
 
