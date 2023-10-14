@@ -23,7 +23,7 @@ In this project, we implement a function that accepts a format string and a vari
 
   Either use the following command in your terminal: `git clone https://github.com/arommers/ft_printf.git`  
   Or Click the green "Code" button in the upper right corner to download zip file and then unzip it.
-- **Compile the program using the cmd** &nbsp;&nbsp;`make
+- **Compile the program using the cmd** &nbsp;&nbsp;`make`
 - **Run a test case like the example below:**
 
 ```
@@ -39,7 +39,14 @@ int main() {
 
 ---
 
+## The Program
+
+Ft_printf is designed to handle various format specifiers, allowing it to print different types of data. To parse this data 
+
+
 ## Remarks
+
+It's important to note that the function doesn't have any built-in mechanism to check if the number of arguments matches the format string. It relies on the User to provide the correct number and types of arguments.
 
 ---
 
