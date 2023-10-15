@@ -108,12 +108,29 @@ In the context of ft_printf, these concept allowi us to process format specifier
 
 ## Remarks
 
-It's important to note that the function doesn't have any built-in mechanism to check if the number of arguments matches the format string. It relies on the User to provide the correct number and types of arguments.
+As a beginner in C programming, there are a few areas where I could have approached the ft_printf project differently or implemented certain features more effectively.
+
+- **Recursive Conversions:**
+  
+  One improvement could have been to implement some of the conversions using recursive techniques. This could lead to more elegant and potentially more efficient code in certain cases. As it stands now there is definitely some overhead. Especially in the hexidecimal, pointer and unsigned   integer conversions.
+
+- **Error Handling for printf:**
+
+  I realized that I didn't incorporate any error handling for negative return values of printf. If `write` theoretically failed or I would be trying to print to closed ends (files, pipes or sockets), the program doesn't take care of these situations gracefully.
+  Adding checks for such cases would enhance the robustness of the program and provide more informative feedback to users.
+
+- **Input Verification:**
+
+  It's important to note that the function doesn't have any built-in mechanism to check if input is something the program can work with.
+  For example, the number of arguments matching the format string. It relies on the User to provide the correct number and types of arguments.
+
+  These insights represent part of the learning process, and I look forward to applying them in future projects to further refine my coding skills.
 
 ---
 
 ### Sources
 
-- [Format specifiers in 'printf'](https://cplusplus.com/reference/cstdio/printf/)
+- [Format Specifiers in 'printf'](https://cplusplus.com/reference/cstdio/printf/)
+- [Variadic Functions](https://man7.org/linux/man-pages/man3/stdarg.3.html)
 - [Subject File](https://cdn.intra.42.fr/pdf/pdf/99964/en.subject.pdf)
 
