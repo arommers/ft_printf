@@ -39,10 +39,18 @@ int main() {
 
 ---
 
-## The Program
+### The Program
 
-Ft_printf is designed to handle various format specifiers, allowing it to print different types of data. The format specifiers are: `cspdiuxX%`. Meaning that 'c' will print a character, 'i' an int, etc. For the specific requirements of this program I would like to refer you to the [subject file](https://cdn.intra.42.fr/pdf/pdf/99964/en.subject.pdf).  
-The ft_printf function employs variadic functions to process a format string and its associated arguments. When encountering a % character in the format string, it calls [ft_converter function](https://github.com/arommers/ft_printf/blob/main/ft_printf.c) to handle the specific conversion based on the next character in the format string.
+Ft_printf takes a format string and a variable number of arguments, and produces a formatted string as output, which can be displayed on the console or stored in a variable.
+Similar to the original printf.
+
+Our version of printf is designed to handle various format specifiers, allowing it to print different types of data. The format specifiers are:  
+
+`cspdiuxX%`.  
+
+Meaning that any of these preceeded by a `%` sign will print out the associated data type. 'c' will print a character, 'i' an int, etc etc. For the specific requirements of this program I would like to refer you to the [subject file](https://cdn.intra.42.fr/pdf/pdf/99964/en.subject.pdf).  
+
+Ft_printf employs variadic functions to process a format string and its associated arguments. When encountering a `%` character in the format string, it calls [ft_converter function](https://github.com/arommers/ft_printf/blob/main/ft_printf.c) to handle the specific conversion based on the next character in the format string.
 
 ### Variadic functions
 
@@ -84,6 +92,8 @@ Our fundamental tools to work with variable arguments are : `va_list`, `va_start
 
 - **Using va_arg to Retrieve Arguments:**   
   When we encounter a format specifier (e.g., %d), we intruct `va_arg(ap, type)` to fetch the next argument of the specified type. This is akin to advancing our "iterator" to access the next argument.
+  So every time `va_arg` is called it will fetch the specified argument of that type for us and move up to the next unnamed argument.
+  
   In our case all our arguments after the last named argument are 'ints', but it could just as well be a mix of different data types.
 
 - **Automatic Advancement of va_list:**  
